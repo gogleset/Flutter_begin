@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './item.dart'; // 머티리얼 디자인 임폴트
-// import './item.dart';
+import 'package:flutter_begin/fetchButton.dart';
+import './item.dart';
 
 // main 함수: 앱의 진입점
 void main() {
@@ -26,17 +26,18 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             leading: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
             ),
-            title: Text("안녕1"),
+            title: const Text("안녕1"),
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.send_outlined))
+              IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.send_outlined))
             ],
           ),
-          body: Column(
-            children: [ItemWidget()],
+          body: const Column(
+            children: [ItemWidget(), FetchButtonWidget()],
           ),
-          bottomNavigationBar: BottomBar(),
+          bottomNavigationBar: const BottomBar(),
         ));
   }
 }
@@ -46,7 +47,7 @@ class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
+    return const BottomAppBar(
       color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
