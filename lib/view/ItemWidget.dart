@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_begin/httpRequest.dart';
+import 'package:flutter_begin/util/httpRequest.dart';
 import 'package:flutter_begin/likeCount.dart';
 
 class ItemWidget extends StatefulWidget {
@@ -11,8 +11,9 @@ class ItemWidget extends StatefulWidget {
 }
 
 class _ItemWidgetState extends State<ItemWidget> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         // width: double.infinity,
         height: 150,
         child: Row(

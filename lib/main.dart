@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_begin/fetchButton.dart';
-import './item.dart';
+import 'package:flutter_begin/provider/TodoProvider.dart';
+import 'package:flutter_begin/view/FetchButtonWidget.dart';
+import 'package:flutter_begin/view/ItemWidget.dart';
+import 'package:flutter_begin/view/TodoListWidget.dart';
+import 'package:provider/provider.dart';
 
 // main 함수: 앱의 진입점
 void main() {
-  runApp(
-      const MyApp()); // runApp(app) : 플러터에서 최상위 함수. runApp 함수 안에는 app, 즉 위젯이 들어온다 생각하면 됨.
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<TodoProvider>(create: (_) => TodoProvider()),
+    ],
+    child: const MyApp(),
+  )); // runApp(app) : 플러터에서 최상위 함수. runApp 함수 안에는 app, 즉 위젯이 들어온다 생각하면 됨.
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +42,7 @@ class MyApp extends StatelessWidget {
             ],
           ),
           body: const Column(
-            children: [ItemWidget(), FetchButtonWidget()],
+            children: [ItemWidget(), FetchButtonWidget(), TodoListWidget()],
           ),
           bottomNavigationBar: const BottomBar(),
         ));
